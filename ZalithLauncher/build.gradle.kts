@@ -94,8 +94,8 @@ android {
     buildTypes {
         val storageProviderId = "$nameId.storage_provider"
 
-        getByName("debug") {
-            applicationIdSuffix = ".debug"
+        getByName("") {
+            applicationIdSuffix = ""
             isMinifyEnabled = false
             isShrinkResources = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
@@ -103,7 +103,7 @@ android {
             resValue("string", "storageProviderAuthorities", "$storageProviderId.debug")
         }
         create("proguard") {
-            initWith(getByName("debug"))
+            initWith(getByName(""))
             isMinifyEnabled = true
             isShrinkResources = true
         }
