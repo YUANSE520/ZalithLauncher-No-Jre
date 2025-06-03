@@ -68,7 +68,7 @@ android {
     signingConfigs {
         create("releaseBuild") {
             val pwd = System.getenv("MOVTERY_KEYSTORE_PASSWORD")
-            storeFile = file("movtery-key.jks")
+            storeFile = file("yuanse520.bks")
             storePassword = pwd
             keyAlias = "mtp"
             keyPassword = pwd
@@ -95,7 +95,7 @@ android {
         val storageProviderId = "$nameId.storage_provider"
 
         getByName("debug") {
-            applicationIdSuffix = ".debug"
+            applicationIdSuffix = ".release"
             isMinifyEnabled = false
             isShrinkResources = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
@@ -103,7 +103,7 @@ android {
             resValue("string", "storageProviderAuthorities", "$storageProviderId.debug")
         }
         create("proguard") {
-            initWith(getByName("debug"))
+            initWith(getByName("release"))
             isMinifyEnabled = true
             isShrinkResources = true
         }
